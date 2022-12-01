@@ -45,13 +45,11 @@ function HomePage() {
   }, []);
 
   return (
- 
-      <div className="ProjectListPage">
-        {Items.map((item) => (
-          <ItemCard key={item._id} {...item} />
-        ))}
-      </div>
-  
+    <div className="item-container">
+      {Items.map((item) => (
+        <ItemCard key={item._id} {...item} />
+      ))}
+    </div>
   );
 }
 
