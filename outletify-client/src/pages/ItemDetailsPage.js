@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
 function ItemDetailsPage(props) {
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [item, setItem] = useState(null);
   const [orderedItem, setOrderedItem] = useState([]);
   const { itemId } = useParams();
@@ -45,11 +47,10 @@ function ItemDetailsPage(props) {
   const priceForStripe = item?.price * 100;
   return (
     <div>
-      <h3>{item?.name}</h3>
+      <p>{item?.name}</p>
       <img src={item?.img} alt="pic" />
       <p>{`$${item?.price}`}</p>
-
-      <button onClick={handleOrder}>Add to cart</button>
+      {isLoggedIn && <button onClick={handleOrder}>Add to cart</button>}
 
       <StripeCheckout
         stripeKey={key}

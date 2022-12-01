@@ -45,7 +45,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div>
+    <div className="item-container">
       {Items.map((item) => (
         <ItemCard key={item._id} {...item} />
       ))}
