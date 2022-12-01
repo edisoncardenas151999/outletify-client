@@ -1,3 +1,23 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+.item-page {
+  width: 300px;
+  padding: 1rem;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  margin: 8px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: column;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0.5rem;
+  z-index: 50;
 }

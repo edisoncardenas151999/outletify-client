@@ -45,7 +45,10 @@ function ItemDetailsPage(props) {
   const priceForStripe = item?.price * 100;
   return (
     <div>
-      <h1>{item?.name}</h1>
+      <h3>{item?.name}</h3>
+      <img src={item?.img} alt="pic" />
+      <p>{`$${item?.price}`}</p>
+
       <button onClick={handleOrder}>Add to cart</button>
 
       <StripeCheckout
