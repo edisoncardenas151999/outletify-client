@@ -1,3 +1,24 @@
 .App {
   text-align: center;
 }
+.item-container {
+  margin: 30px auto 0 auto;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+.item-page {
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 250px;
+  margin: 15px;
+  padding: 10px;
+  height: 300px;
+}
