@@ -45,11 +45,19 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="item-container">
-      {Items.map((item) => (
-        <ItemCard key={item._id} {...item} />
-      ))}
-    </div>
+    <>
+      <div className="category">
+        <Link to="/javascript">Javascript</Link>
+        <Link to="/java">Java</Link>
+        <Link to="/python">Python</Link>
+      </div>
+
+      <div className="item-container">
+        {Items.map((item) => (
+          <ItemCard key={item._id} {...item} />
+        ))}
+      </div>
+    </>
   );
 }
 

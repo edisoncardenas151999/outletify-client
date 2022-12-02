@@ -9,6 +9,9 @@ import IsAnon from "./components/IsAnon"; // <== IMPORT
 import ItemCard from "./components/ItemCard";
 import ItemDetailsPage from "./pages/ItemDetailsPage";
 import Cart from "./pages/Cart";
+import Java from "./Categories/Java";
+import Javascript from "./Categories/Javascript";
+import Python from "./Categories/Python";
 
 function App() {
   return (
@@ -35,7 +38,10 @@ function App() {
           }
         />
         <Route path="/item/:itemId" element={<ItemDetailsPage />} />
-        <Route path="/user/:userId" element={<Cart/>} />
+        <Route path="/user/:userId" element={<Cart />} />
+        <Route path="/javascript" element={<Javascript />} />
+        <Route path="/python" element={<Python />} />
+        <Route path="/java" element={<Java />} />
       </Routes>
     </div>
   );
