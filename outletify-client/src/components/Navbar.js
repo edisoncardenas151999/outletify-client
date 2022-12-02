@@ -22,9 +22,6 @@ function Navbar() {
                   <Link to={`/`}>Contact</Link>
                 </li>
                 <li className="scroll-to-section">
-                  <Link to={`/`}>Pricing</Link>
-                </li>
-                <li className="scroll-to-section">
                   <Link to={`/`}>Shop</Link>
                 </li>
 
