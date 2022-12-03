@@ -84,24 +84,33 @@ strong {
   justify-content: center;
   align-items: center;
 }
+.shop-now {
+  font-size: 96px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.014em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+.big-shopnow {
+  color: black;
+}
 
 .home-pic1 {
   background-image: url("https://i.pinimg.com/736x/7a/6d/f4/7a6df4793e6f8998f841f09b5b8f4f17.jpg");
   position: relative;
-  width: 600px;
-  height: 400px;
   margin: 10px;
   background-size: contain;
   background-repeat: no-repeat;
+  padding: 240px 340px 50px 100px;
 }
 .home-pic2 {
   background-image: url("https://www.newgenapps.com/hubfs/Orange%20E-Commerce%20Button%20on%20Computer%20Keyboard.%20Internet%20Concept.-1.jpeg");
   position: relative;
-  width: 600px;
-  height: 400px;
   margin: 10px;
   background-size: contain;
   background-repeat: no-repeat;
+  padding: 240px 340px 50px 100px;
 }
 
 img {
@@ -123,7 +132,7 @@ img {
   right: 0;
   bottom: 0;
   transition: background-color 0.4s ease-in-out;
-  background-color: rgba(178, 164, 164, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
 .home-pic1:hover .overlay {
