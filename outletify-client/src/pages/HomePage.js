@@ -4,7 +4,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import FadeInOut from "../FadeInOut";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://codebooks.fly.dev/";
 
 function HomePage() {
   const [Items, setItems] = useState([]);

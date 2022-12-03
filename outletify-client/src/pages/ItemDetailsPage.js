@@ -4,7 +4,7 @@ import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://codebooks.fly.dev/";
 
 function ItemDetailsPage(props) {
   const Navigate = useNavigate();
