@@ -12,36 +12,36 @@ function HomePage() {
 
   const { userId } = useParams();
 
-  const getAllItem = () => {
-    const storedToken = localStorage.getItem("authToken");
+  // const getAllItem = () => {
+  //   const storedToken = localStorage.getItem("authToken");
 
-    // Send the token through the request "Authorization" Headers
-    axios
-      .get(`${API_URL}/auth/allItems`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => setItems(response.data))
-      .catch((error) => console.log(error));
-  };
+  //   // Send the token through the request "Authorization" Headers
+  //   axios
+  //     .get(`${API_URL}/auth/allItems`, {
+  //       headers: { Authorization: `Bearer ${storedToken}` },
+  //     })
+  //     .then((response) => setItems(response.data))
+  //     .catch((error) => console.log(error));
+  // };
 
-  const getUser = () => {
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .get(`${API_URL}/auth/user/${userId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        const oneUser = response.data;
-        setUser(oneUser);
-      })
-      .catch((error) => console.log(error));
-  };
+  // const getUser = () => {
+  //   const storedToken = localStorage.getItem("authToken");
+  //   axios
+  //     .get(`${API_URL}/auth/user/${userId}`, {
+  //       headers: { Authorization: `Bearer ${storedToken}` },
+  //     })
+  //     .then((response) => {
+  //       const oneUser = response.data;
+  //       setUser(oneUser);
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
-  useEffect(() => {
-    getUser();
-  }, []);
+  // // We set this effect will run only once, after the initial render
+  // // by setting the empty dependency array - []
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
 
   return (
     <>
