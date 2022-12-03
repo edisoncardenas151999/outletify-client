@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ItemCard from "../components/ItemCard";
 import { useParams, Link, Navigate } from "react-router-dom";
-
-import StripeCheckout from "react-stripe-checkout";
+import Footer from "../components/Footer";
+import FadeInOut from "../FadeInOut";
 
 const API_URL = "http://localhost:5005";
 
@@ -41,22 +40,45 @@ function HomePage() {
   // We set this effect will run only once, after the initial render
   // by setting the empty dependency array - []
   useEffect(() => {
-    getAllItem();
+    getUser();
   }, []);
 
   return (
     <>
-      <div className="category">
-        <Link to="/javascript">Javascript</Link>
-        <Link to="/java">Java</Link>
-        <Link to="/python">Python</Link>
-      </div>
+      <div className="home-welcome-pic">
+        <div className="category">
+          <ul className="ul-category">
+            <li>
+              <Link to="/python">Python</Link>
+            </li>
+            <li>
+              <Link to="/javascript">Javascript</Link>
+            </li>
+            <li>
+              <Link to="/java">Java</Link>
+            </li>
+          </ul>
+        </div>
 
-      <div className="item-container">
-        {Items.map((item) => (
-          <ItemCard key={item._id} {...item} />
-        ))}
+        <div className="content-vision-mission">
+          <h5>CODE BOOKS</h5>
+          <p>
+            The simplest and cheapest path to becoming a coding expert. Choose a
+            language and begin your programming journey today.
+          </p>
+        </div>
       </div>
+      <div className="home-pic-container">
+        <div className="home-pic1">
+          <div className="overlay"></div>
+          <div className="content">TEST</div>
+        </div>
+        <div className="home-pic2">
+          <div className="overlay"></div>
+          <div className="content">TEST</div>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

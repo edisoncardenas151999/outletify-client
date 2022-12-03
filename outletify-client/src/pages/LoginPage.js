@@ -49,19 +49,17 @@ function LoginPage(props) {
             <div class="row full-height justify-content-center">
               <div class="col-12 text-center align-self-center py-5">
                 <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                  <input
-                    class="checkbox"
-                    type="checkbox"
-                    id="reg-log"
-                    name="reg-log"
-                  />
-
                   <div class="card-3d-wrap mx-auto">
                     <div class="card-3d-wrapper">
                       <div class="card-front">
                         <div class="center-wrap">
                           <div class="section text-center">
-                            //todo LOGO
+                            <Link className="logo" to={"/"} Link>
+                              <img
+                                src="https://images-platform.99static.com/kXV-v6IrH6Dgg41p5NGqdgbog3g=/100x100:900x900/500x500/top/smart/99designs-contests-attachments/118/118605/attachment_118605478"
+                                className="logo"
+                              />
+                            </Link>
                             <form onSubmit={handleLoginSubmit}>
                               <div class="form-group mb-3">
                                 <input
@@ -69,8 +67,6 @@ function LoginPage(props) {
                                   name="email"
                                   class="form-style"
                                   placeholder="Your Email"
-                                  id="logemail"
-                                  autocomplete="off"
                                   value={email}
                                   onChange={handleEmail}
                                 />
@@ -84,8 +80,6 @@ function LoginPage(props) {
                                   value={password}
                                   onChange={handlePassword}
                                   placeholder="Your Password"
-                                  id="logpass"
-                                  autocomplete="off"
                                 />
                                 <i class="input-icon uil uil-lock-alt"></i>
                               </div>
@@ -117,8 +111,6 @@ function LoginPage(props) {
                                 name="logemail"
                                 class="form-style"
                                 placeholder="Your Email"
-                                id="logemail"
-                                autocomplete="off"
                               />
                               <i class="input-icon uil uil-at"></i>
                             </div>
@@ -128,8 +120,6 @@ function LoginPage(props) {
                                 name="logpass"
                                 class="form-style"
                                 placeholder="Your Password"
-                                id="logpass"
-                                autocomplete="off"
                               />
                               <i class="input-icon uil uil-lock-alt"></i>
                             </div>

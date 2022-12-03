@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import { AuthContext } from "../context/auth.context";
@@ -7,6 +7,7 @@ import { AuthContext } from "../context/auth.context";
 const API_URL = "http://localhost:5005";
 
 function ItemDetailsPage(props) {
+  const Navigate = useNavigate();
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [item, setItem] = useState(null);
   const [orderedItem, setOrderedItem] = useState([]);
@@ -40,27 +41,54 @@ function ItemDetailsPage(props) {
       })
       .then((response) => {
         console.log(`${itemId} succesfully added to inventory`);
-      })
-      .catch((error) => console.log(error));
+      });
+    Navigate(`/user/${user._id}`).catch((error) => console.log(error));
   };
 
   const priceForStripe = item?.price * 100;
   return (
-    <div>
-      <p>{item?.name}</p>
-      <img src={item?.img} alt="pic" />
-      <p>{`$${item?.price}`}</p>
-      {isLoggedIn && <button onClick={handleOrder}>Add to cart</button>}
+    <div className="item-detail-container">
+      <div className="item-detail">
+        <div>
+          <p>{item?.name}</p>
+          <br></br>
 
-      <StripeCheckout
-        stripeKey={key}
-        label="Pay Now"
-        billingAddress
-        shippingAddress
-        amount={priceForStripe}
-        description={`your total is $${item?.price}`}
-        // token={payNow}
-      />
+          <img src={item?.img} alt="pic" />
+          <p>{`$${item?.price}`}</p>
+          <br></br>
+          {!isLoggedIn && (
+            <Link to="/login">
+              <button>Buy Now</button>
+            </Link>
+          )}
+
+          {isLoggedIn && <button onClick={handleOrder}>Add to cart</button>}
+          {isLoggedIn && (
+            <StripeCheckout
+              stripeKey={key}
+              label="Pay Now"
+              billingAddress
+              shippingAddress
+              amount={priceForStripe}
+              description={`your total is $${item?.price}`}
+              // token={payNow}
+            />
+          )}
+        </div>
+        <div className="description-container">
+          <div className="description">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
