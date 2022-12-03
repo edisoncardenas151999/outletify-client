@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link, Navigate } from "react-router-dom";
 import Footer from "../components/Footer";
-import FadeInOut from "../FadeInOut";
 
 const API_URL = "https://codebooks.fly.dev/";
 
