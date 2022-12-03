@@ -22,7 +22,7 @@ function Navbar() {
                   <Link to={`/`}>Contact</Link>
                 </li>
                 <li className="scroll-to-section">
-                  <Link to={`/`}>Shop</Link>
+                  <Link to="/shop">Shop</Link>
                 </li>
 
                 {isLoggedIn && (

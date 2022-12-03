@@ -12,6 +12,7 @@ import Cart from "./pages/Cart";
 import Java from "./Categories/Java";
 import Javascript from "./Categories/Javascript";
 import Python from "./Categories/Python";
+import Shop from "./pages/Shop";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/javascript" element={<Javascript />} />
         <Route path="/python" element={<Python />} />
         <Route path="/java" element={<Java />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
     </div>
   );

@@ -22,3 +22,104 @@
   padding: 10px;
   height: 300px;
 }
+.ul-category {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  margin-top: -270px;
+}
+
+.ul-category li {
+  list-style: none;
+  display: inline;
+  padding-right: 50px;
+  text-decoration: underline;
+}
+.ul-category li a {
+  color: rgb(0, 0, 0);
+  font-family: Verdana;
+  text-shadow: 0 0 10px rgb(255, 245, 245);
+  font-weight: 600;
+  font-size: 15px;
+  color: #2a2a2a;
+  text-transform: capitalize;
+  transition: all 0.3s ease 0s;
+  height: 40px;
+  line-height: 40px;
+  border: transparent;
+  letter-spacing: 1px;
+}
+.home-welcome-pic {
+  position: relative;
+  background-image: url("https://cdn.searchenginejournal.com/wp-content/uploads/2019/10/how-to-write-design-promote-an-ebook-a-complete-guide-1520x800.png");
+  padding: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.content-vision-mission {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Verdana;
+  text-shadow: 0 0 10px rgb(54, 51, 51);
+}
+
+.home-pic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-pic1 {
+  background-image: url("https://i.pinimg.com/736x/7a/6d/f4/7a6df4793e6f8998f841f09b5b8f4f17.jpg");
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.home-pic2 {
+  background-image: url("https://www.newgenapps.com/hubfs/Orange%20E-Commerce%20Button%20on%20Computer%20Keyboard.%20Internet%20Concept.-1.jpeg");
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+img {
+  object-fit: cover;
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Verdana;
+  text-shadow: 0 0 10px rgb(54, 51, 51);
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background-color 0.4s ease-in-out;
+  background-color: rgba(178, 164, 164, 0.8);
+  cursor: pointer;
+}
+.home-pic1:hover .overlay {
+  background-color: rgba(125, 117, 117, 0.2);
+}
+.home-pic2:hover .overlay {
+  background-color: rgba(125, 117, 117, 0.2);
+}

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ItemCard from "../components/ItemCard";
 import { useParams, Link, Navigate } from "react-router-dom";
-
-import StripeCheckout from "react-stripe-checkout";
 
 const API_URL = "http://localhost:5005";
 
@@ -46,16 +43,50 @@ function HomePage() {
 
   return (
     <>
-      <div className="category">
-        <Link to="/javascript">Javascript</Link>
-        <Link to="/java">Java</Link>
-        <Link to="/python">Python</Link>
+      <div className="home-welcome-pic">
+        <div className="content-vision-mission">
+          <h5>
+            <strong>Mission</strong>
+            <br></br>
+            To use the power of emerging technology to make Coding books more
+            accessible and cheaper for everyone, so that one day everyone in the
+            world will have ready access to the world of Coding books.
+            <br></br>
+            <strong>Vision</strong>
+            <br></br>
+            To make eBooks.com the simplest, most beautiful access point for all
+            the world’s books.
+          </h5>
+        </div>
+        <div className="category">
+          <ul className="ul-category">
+            <li>
+              <Link to="/python">Python</Link>
+            </li>
+            <li>
+              <Link to="/python">Ruby</Link>
+            </li>
+            <li>
+              <Link to="/python">Swift</Link>
+            </li>
+            <li>
+              <Link to="/javascript">Javascript</Link>
+            </li>
+            <li>
+              <Link to="/java">Java</Link>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <div className="item-container">
-        {Items.map((item) => (
-          <ItemCard key={item._id} {...item} />
-        ))}
+      <div className="home-pic-container">
+        <div className="home-pic1">
+          <div className="overlay"></div>
+          <div className="content">TEST</div>
+        </div>
+        <div className="home-pic2">
+          <div className="overlay"></div>
+          <div className="content">TEST</div>
+        </div>
       </div>
     </>
   );
