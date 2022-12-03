@@ -6,7 +6,7 @@ import axios from "axios";
 const Javascript = () => {
   const [items, setItems] = useState(null);
   const categoryId = "638b81adfd6737d69febe020";
-  const API_URL = "http://localhost:5005";
+  const API_URL = "https://codebooks.fly.dev/";
   const getAllItems = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
