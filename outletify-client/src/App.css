@@ -23,51 +23,60 @@
   height: 300px;
 }
 .ul-category {
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-  margin-top: -270px;
+  display: flex;
+  justify-content: space-around;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .ul-category li {
   list-style: none;
-  display: inline;
-  padding-right: 50px;
-  text-decoration: underline;
+  display: flex;
+
+  align-items: center;
 }
+
 .ul-category li a {
-  color: rgb(0, 0, 0);
   font-family: Verdana;
-  text-shadow: 0 0 10px rgb(255, 245, 245);
   font-weight: 600;
   font-size: 15px;
-  color: #2a2a2a;
+  color: #ffffff;
   text-transform: capitalize;
   transition: all 0.3s ease 0s;
-  height: 40px;
-  line-height: 40px;
-  border: transparent;
-  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.7em 1em;
+  border-radius: 0.5em;
 }
 .home-welcome-pic {
-  position: relative;
-  background-image: url("https://cdn.searchenginejournal.com/wp-content/uploads/2019/10/how-to-write-design-promote-an-ebook-a-complete-guide-1520x800.png");
-  padding: 300px;
+  background-image: url("../public/jefferson-santos-9SoCnyQmkzI-unsplash.jpg");
+  padding: 20px 100px 180px;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.content-vision-mission {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.content-vision-mission * {
   color: white;
-  font-family: Verdana;
-  text-shadow: 0 0 10px rgb(54, 51, 51);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5em;
+  animation: fadeIn 6s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+h5 {
+  font-size: 2.5em;
+  font-weight: 900;
+  padding-top: 100px;
+}
+strong {
+  text-decoration: underline;
+}
+.col-12 {
+  margin-bottom: 30px;
 }
 
 .home-pic-container {
@@ -122,4 +131,114 @@ img {
 }
 .home-pic2:hover .overlay {
   background-color: rgba(125, 117, 117, 0.2);
+}
+.item-name {
+  color: black;
+  text-decoration: none;
+}
+.item-detail {
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  margin: 15px;
+  padding: 10px;
+  height: 400px;
+  display: flex;
+  width: 1000px;
+  justify-content: flex-start;
+}
+.item-detail-container {
+  display: flex;
+  justify-content: center;
+}
+.description {
+  display: flex;
+}
+.description-container {
+  display: flex;
+  width: 500px;
+  justify-content: center;
+}
+p {
+  font-size: x-large;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  bottom: 15px;
+}
+.wrapper .button {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  float: left;
+  margin: 0 5px;
+  overflow: hidden;
+  color: black;
+
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:hover {
+  width: 200px;
+}
+.wrapper .button .icon {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1):hover .icon {
+  background: #4267b2;
+}
+.wrapper .button:nth-child(2):hover .icon {
+  background: black;
+}
+.wrapper .button:nth-child(3):hover .icon {
+  background: #1da1f2;
+}
+.wrapper .button:nth-child(4):hover .icon {
+  background: #333;
+}
+.wrapper .button:nth-child(5):hover .icon {
+  background: #ff0000;
+}
+.wrapper .button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:hover .icon i {
+  color: #fff;
+}
+.wrapper .button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1) .footer-fb {
+  color: #4267b2;
+}
+.wrapper .button:nth-child(2) .footer-github {
+  color: black;
+}
+.wrapper .button:nth-child(3) .footer-linkedin {
+  color: #1da1f2;
+}
+.wrapper .button:nth-child(4) .footer-codepen {
+  color: #333;
+}
+.wrapper .button:nth-child(5) .footer-slack {
+  color: #ff0000;
 }

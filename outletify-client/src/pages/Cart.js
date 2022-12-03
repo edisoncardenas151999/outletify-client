@@ -27,8 +27,8 @@ const Cart = () => {
 
   return (
     <div className="item-container">
-      {items?.cart?.map((item) => (
-        <ItemCard key={item._id} {...item} />
+      {items?.cart?.map((item, index) => (
+        <ItemCard key={index} {...item} />
       ))}
     </div>
   );

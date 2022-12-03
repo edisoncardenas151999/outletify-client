@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link, Navigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import FadeInOut from "../FadeInOut";
 
 const API_URL = "http://localhost:5005";
 
@@ -38,36 +40,16 @@ function HomePage() {
   // We set this effect will run only once, after the initial render
   // by setting the empty dependency array - []
   useEffect(() => {
-    getAllItem();
+    getUser();
   }, []);
 
   return (
     <>
       <div className="home-welcome-pic">
-        <div className="content-vision-mission">
-          <h5>
-            <strong>Mission</strong>
-            <br></br>
-            To use the power of emerging technology to make Coding books more
-            accessible and cheaper for everyone, so that one day everyone in the
-            world will have ready access to the world of Coding books.
-            <br></br>
-            <strong>Vision</strong>
-            <br></br>
-            To make eBooks.com the simplest, most beautiful access point for all
-            the world’s books.
-          </h5>
-        </div>
         <div className="category">
           <ul className="ul-category">
             <li>
               <Link to="/python">Python</Link>
-            </li>
-            <li>
-              <Link to="/python">Ruby</Link>
-            </li>
-            <li>
-              <Link to="/python">Swift</Link>
             </li>
             <li>
               <Link to="/javascript">Javascript</Link>
@@ -76,6 +58,14 @@ function HomePage() {
               <Link to="/java">Java</Link>
             </li>
           </ul>
+        </div>
+
+        <div className="content-vision-mission">
+          <h5>CODE BOOKS</h5>
+          <p>
+            The simplest and cheapest path to becoming a coding expert. Choose a
+            language and begin your programming journey today.
+          </p>
         </div>
       </div>
       <div className="home-pic-container">
@@ -88,6 +78,7 @@ function HomePage() {
           <div className="content">TEST</div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
