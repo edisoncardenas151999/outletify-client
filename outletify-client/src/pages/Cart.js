@@ -33,7 +33,7 @@ const Cart = () => {
   }, []);
 
   const handleClearCart = () => {
-    const storedToken = localStorage.getItem("authToken");
+    const storedToken = localStorage.getItem("userId");
     axios
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -47,7 +47,6 @@ const Cart = () => {
     MySwal.fire({
       icon: "success",
       title: "Payment was succesful",
-      time: 1000,
     });
   };
 
@@ -67,7 +66,7 @@ const Cart = () => {
       });
       if (response.status === 200) {
         await handleClearCart();
-        await handleSuccess();
+        handleSuccess();
       }
     } catch (error) {
       console.log(error);
