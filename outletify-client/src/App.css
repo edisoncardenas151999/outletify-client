@@ -32,7 +32,6 @@
 .ul-category li {
   list-style: none;
   display: flex;
-
   align-items: center;
 }
 
@@ -40,15 +39,20 @@
   font-family: Verdana;
   font-weight: 600;
   font-size: 15px;
-  color: #ffffff;
+  color: #000000;
   text-transform: capitalize;
   transition: all 0.3s ease 0s;
   background: rgba(255, 255, 255, 0.2);
   padding: 0.7em 1em;
   border-radius: 0.5em;
 }
+.ul-category li a:hover {
+  background-color: #0a0b0a;
+  color: #ffeba7;
+  box-shadow: 0 8px 24px 0 rgba(16, 112, 30, 0.2);
+}
 .home-welcome-pic {
-  background-image: url("../public/jefferson-santos-9SoCnyQmkzI-unsplash.jpg");
+  background-image: url("../public/austin-distel-4r72LPFh4Ik-unsplash.jpg");
   padding: 20px 100px 180px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -57,7 +61,8 @@
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5em;
-  animation: fadeIn 6s;
+  animation: fadeIn 5s;
+  text-shadow: 0 0 10px rgb(54, 51, 51);
 }
 @keyframes fadeIn {
   0% {
@@ -83,17 +88,6 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.shop-now {
-  font-size: 96px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.014em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-}
-.big-shopnow {
-  color: black;
 }
 
 .home-pic1 {
@@ -125,6 +119,13 @@ img {
   font-family: Verdana;
   text-shadow: 0 0 10px rgb(54, 51, 51);
 }
+.content Link {
+  color: white;
+  font-family: Verdana;
+  text-shadow: 0 0 10px rgb(54, 51, 51);
+  transform: translate(-50%, -50%);
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -250,4 +251,13 @@ p {
 }
 .wrapper .button:nth-child(5) .footer-slack {
   color: #ff0000;
+}
+#sell-container {
+  border-radius: 50px;
+  box-shadow: 10px 30px 30px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+#sell-container label {
+  color: black;
+  display: flex;
 }
