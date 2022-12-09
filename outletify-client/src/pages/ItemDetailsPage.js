@@ -3,8 +3,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import { AuthContext } from "../context/auth.context";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-const API_URL = "https://codebooks.fly.dev/";
+const API_URL = "http://localhost:5005";
 
 function ItemDetailsPage(props) {
   const Navigate = useNavigate();
@@ -32,6 +34,8 @@ function ItemDetailsPage(props) {
     getItem();
   }, []);
 
+  const MySwal = withReactContent(Swal);
+
   const handleOrder = () => {
     const requestBody = { orderedItem };
     const storedToken = localStorage.getItem("authToken");
@@ -42,7 +46,33 @@ function ItemDetailsPage(props) {
       .then((response) => {
         console.log(`${itemId} succesfully added to inventory`);
       });
-    Navigate(`/user/${user._id}`).catch((error) => console.log(error));
+    Navigate(`/user/${user._id}`);
+  };
+
+  const handleSuccess = () => {
+    MySwal.fire({
+      icon: "success",
+      title: "Payment was succesful",
+      time: 1000,
+    });
+  };
+
+  const payNow = async (token) => {
+    try {
+      const response = await axios({
+        url: "http://localhost:5005/auth/payment",
+        method: "post",
+        data: {
+          amount: item.price * 100,
+          token,
+        },
+      });
+      if (response.status === 200) {
+        handleSuccess();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const priceForStripe = item?.price * 100;
@@ -71,7 +101,7 @@ function ItemDetailsPage(props) {
               shippingAddress
               amount={priceForStripe}
               description={`your total is $${item?.price}`}
-              // token={payNow}
+              token={payNow}
             />
           )}
         </div>

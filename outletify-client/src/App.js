@@ -13,6 +13,9 @@ import Java from "./Categories/Java";
 import Javascript from "./Categories/Javascript";
 import Python from "./Categories/Python";
 import Shop from "./pages/Shop";
+import Sell from "./components/Sell";
+import Inventory from "./components/Inventory";
+import Ruby from "./Categories/Ruby";
 
 function App() {
   return (
@@ -43,7 +46,10 @@ function App() {
         <Route path="/javascript" element={<Javascript />} />
         <Route path="/python" element={<Python />} />
         <Route path="/java" element={<Java />} />
+        <Route path="/ruby" element={<Ruby />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/sell/:userId" element={<Sell />} />
+        <Route path="/inventory/:userId" element={<Inventory />} />
       </Routes>
     </div>
   );

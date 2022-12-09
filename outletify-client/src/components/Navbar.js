@@ -11,7 +11,7 @@ function Navbar() {
         <div className="row">
           <div className="col-12">
             <nav className="main-nav">
-              <Link className="logo" to={"/"} Link>
+              <Link className="logo" to={"/"}>
                 <img
                   src="https://images-platform.99static.com/kXV-v6IrH6Dgg41p5NGqdgbog3g=/100x100:900x900/500x500/top/smart/99designs-contests-attachments/118/118605/attachment_118605478"
                   className="logo"
@@ -33,6 +33,12 @@ function Navbar() {
 
                 {isLoggedIn && (
                   <>
+                    <li className="scroll-to-section">
+                      <Link to={`/sell/${userId}`}>Sell</Link>
+                    </li>
+                    <li className="scroll-to-section">
+                      <Link to={`inventory/${userId}`}>Inventory</Link>
+                    </li>
                     <li>
                       <Link to={`/user/${userId}`}>Cart</Link>
                     </li>

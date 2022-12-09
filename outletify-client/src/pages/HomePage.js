@@ -1,47 +1,7 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-const API_URL = "https://codebooks.fly.dev/";
-
 function HomePage() {
-  const [Items, setItems] = useState([]);
-  const [User, setUser] = useState("");
-
-  const { userId } = useParams();
-
-  // const getAllItem = () => {
-  //   const storedToken = localStorage.getItem("authToken");
-
-  //   // Send the token through the request "Authorization" Headers
-  //   axios
-  //     .get(`${API_URL}/auth/allItems`, {
-  //       headers: { Authorization: `Bearer ${storedToken}` },
-  //     })
-  //     .then((response) => setItems(response.data))
-  //     .catch((error) => console.log(error));
-  // };
-
-  // const getUser = () => {
-  //   const storedToken = localStorage.getItem("authToken");
-  //   axios
-  //     .get(`${API_URL}/auth/user/${userId}`, {
-  //       headers: { Authorization: `Bearer ${storedToken}` },
-  //     })
-  //     .then((response) => {
-  //       const oneUser = response.data;
-  //       setUser(oneUser);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  // // We set this effect will run only once, after the initial render
-  // // by setting the empty dependency array - []
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
-
   return (
     <>
       <div className="home-welcome-pic">
@@ -55,6 +15,9 @@ function HomePage() {
             </li>
             <li>
               <Link to="/java">Java</Link>
+            </li>
+            <li>
+              <Link to="/ruby">Ruby</Link>
             </li>
           </ul>
         </div>
@@ -72,10 +35,12 @@ function HomePage() {
           <div className="overlay"></div>
           <div className="content">TEST</div>
         </div>
-        <div className="home-pic2">
-          <div className="overlay"></div>
-          <div className="content">TEST</div>
-        </div>
+        <Link to="/shop">
+          <div className="home-pic2">
+            <div className="overlay"></div>
+            <div className="content">Shop Now</div>
+          </div>
+        </Link>
       </div>
       <Footer />
     </>

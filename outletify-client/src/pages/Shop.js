@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ItemCard from "../components/ItemCard";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Shop = () => {
-  const API_URL = "https://codebooks.fly.dev/";
+  const API_URL = "http://localhost:5005";
   const [Items, setItems] = useState([]);
   const [User, setUser] = useState("");
 
@@ -28,11 +28,29 @@ const Shop = () => {
     getAllItem();
   }, []);
   return (
-    <div className="item-container">
-      {Items.map((item) => (
-        <ItemCard key={item._id} {...item} />
-      ))}
-    </div>
+    <>
+      <div className="category">
+        <ul className="ul-category">
+          <li>
+            <Link to="/python">Python</Link>
+          </li>
+          <li>
+            <Link to="/javascript">Javascript</Link>
+          </li>
+          <li>
+            <Link to="/java">Java</Link>
+          </li>
+          <li>
+            <Link to="/ruby">Ruby</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="item-container">
+        {Items.map((item) => (
+          <ItemCard key={item._id} {...item} />
+        ))}
+      </div>
+    </>
   );
 };
 
