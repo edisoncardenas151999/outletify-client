@@ -6,7 +6,7 @@ import { AuthContext } from "../context/auth.context";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://codebooks.fly.dev/";
 
 function ItemDetailsPage(props) {
   const Navigate = useNavigate();
@@ -60,7 +60,7 @@ function ItemDetailsPage(props) {
   const payNow = async (token) => {
     try {
       const response = await axios({
-        url: "http://localhost:5005/auth/payment",
+        url: "https://codebooks.fly.dev//auth/payment",
         method: "post",
         data: {
           amount: item.price * 100,

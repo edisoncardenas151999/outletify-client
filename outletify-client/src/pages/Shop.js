@@ -4,7 +4,7 @@ import ItemCard from "../components/ItemCard";
 import { useParams, Link } from "react-router-dom";
 
 const Shop = () => {
-  const API_URL = "http://localhost:5005";
+  const API_URL = "https://codebooks.fly.dev/";
   const [Items, setItems] = useState([]);
   const [User, setUser] = useState("");
 
