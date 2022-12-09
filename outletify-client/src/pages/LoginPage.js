@@ -54,7 +54,7 @@ function LoginPage(props) {
                       <div className="card-front">
                         <div className="center-wrap">
                           <div className="section text-center">
-                            <Link className="logo" to={"/"} Link>
+                            <Link className="logo" to={"/"}>
                               <img
                                 src="https://images-platform.99static.com/kXV-v6IrH6Dgg41p5NGqdgbog3g=/100x100:900x900/500x500/top/smart/99designs-contests-attachments/118/118605/attachment_118605478"
                                 className="logo"

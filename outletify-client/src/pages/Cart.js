@@ -50,11 +50,8 @@ const Cart = () => {
       time: 1000,
     });
   };
-  console.log(userCart?.cart[0]?.price);
 
   const totalPrice = userCart?.cart?.reduce(function (acc, val) {
-    console.log(acc, "acc");
-    console.log(val, "val");
     return acc + val?.price;
   }, 0);
 
@@ -69,8 +66,8 @@ const Cart = () => {
         },
       });
       if (response.status === 200) {
-        handleClearCart();
-        handleSuccess();
+        await handleClearCart();
+        await handleSuccess();
       }
     } catch (error) {
       console.log(error);
