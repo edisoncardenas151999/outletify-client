@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://codebooks.fly.dev/";
+const API_URL = "https://codebooks.fly.dev";
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
