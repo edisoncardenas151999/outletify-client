@@ -46,7 +46,7 @@ function Navbar() {
                     ) : (
                       <li>
                         <Link to={`/user/${userId}`}>
-                          Cart{user.cart.length}
+                          Cart ( {user.cart.length} )
                         </Link>
                       </li>
                     )}
