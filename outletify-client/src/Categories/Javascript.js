@@ -43,7 +43,14 @@ const Javascript = () => {
         {items?.map((item, index) => {
           const javascript =
             item?.category === "javascript" ? (
-              <ItemCard key={index} {...item} />
+              <div className="item-page" key={index}>
+                <Link to={`/item/${item?._id}`}>
+                  <strong className="item-name">{item?.name}</strong>
+                  <br />
+                  <img src={item?.img} alt="pic" />
+                  <p>{`$${item?.price}`}</p>
+                </Link>
+              </div>
             ) : null;
           return javascript;
         })}
