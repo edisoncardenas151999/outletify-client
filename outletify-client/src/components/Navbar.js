@@ -39,9 +39,18 @@ function Navbar() {
                     <li className="scroll-to-section">
                       <Link to={`inventory/${userId}`}>Inventory</Link>
                     </li>
-                    <li>
-                      <Link to={`/user/${userId}`}>Cart</Link>
-                    </li>
+                    {user.cart.length === 0 ? (
+                      <li>
+                        <Link to={`/user/${userId}`}>Cart</Link>
+                      </li>
+                    ) : (
+                      <li>
+                        <Link to={`/user/${userId}`}>
+                          Cart{user.cart.length}
+                        </Link>
+                      </li>
+                    )}
+
                     <li>
                       <button onClick={logOutUser}>Logout</button>
                     </li>
