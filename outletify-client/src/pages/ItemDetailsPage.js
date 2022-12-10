@@ -10,10 +10,12 @@ const API_URL = "https://codebooks.fly.dev";
 
 function ItemDetailsPage(props) {
   const Navigate = useNavigate();
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
   const [item, setItem] = useState(null);
   const [orderedItem, setOrderedItem] = useState([]);
   const { itemId } = useParams();
+  const [updatedUser, setUpdatedUser] = useState(null);
+
   const key =
     "pk_test_51M9ZjvG6NeaDtKpVRFtUgmoFVxEMaTjHtPct35DcaB1DLIyvoEqXQ6vAvcgqKcp7cfjeIs5J0ZH94EhjCsSyWN7Z00xeCRkTs7";
 
@@ -30,13 +32,27 @@ function ItemDetailsPage(props) {
       .catch((error) => console.log(error));
   };
 
+  const getUser = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .get(`${API_URL}/auth/user`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        const user = response.data;
+        setUpdatedUser(user);
+      })
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     getItem();
+    getUser();
   }, []);
 
   const MySwal = withReactContent(Swal);
 
-  const handleOrder = () => {
+  const handleAddToCart = () => {
     const requestBody = { orderedItem };
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -44,8 +60,10 @@ function ItemDetailsPage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log(`${itemId} succesfully added to inventory`);
+        console.log(response.data, "res");
+        //
       });
+
     Navigate(`/user/${user._id}`);
   };
 
@@ -75,51 +93,70 @@ function ItemDetailsPage(props) {
     }
   };
 
+  const renderCartButtons = () => {
+    return (
+      isLoggedIn && (
+        <>
+          <button onClick={handleAddToCart}> Add to cart</button>
+          <StripeCheckout
+            stripeKey={key}
+            label="Pay Now"
+            billingAddress
+            shippingAddress
+            amount={priceForStripe}
+            description={`your total is $${item?.price}`}
+            token={payNow}
+          />
+        </>
+      )
+    );
+  };
   const priceForStripe = item?.price * 100;
+
+  const { isLoggedIn, user } = useContext(AuthContext);
+
+  console.log(updatedUser, "updated user");
+
   return (
-    <div className="item-detail-container">
-      <div className="item-detail">
-        <div>
-          <p>{item?.name}</p>
-          <br></br>
+    <>
+      <div className="item-detail-container">
+        <div className="item-detail">
+          <div>
+            <p>{item?.name}</p>
+            <br></br>
 
-          <img src={item?.img} alt="pic" />
-          <p>{`$${item?.price}`}</p>
-          <br></br>
-          {!isLoggedIn && (
-            <Link to="/login">
-              <button>Buy Now</button>
-            </Link>
-          )}
-
-          {isLoggedIn && <button onClick={handleOrder}>Add to cart</button>}
-          {isLoggedIn && (
-            <StripeCheckout
-              stripeKey={key}
-              label="Pay Now"
-              billingAddress
-              shippingAddress
-              amount={priceForStripe}
-              description={`your total is $${item?.price}`}
-              token={payNow}
-            />
-          )}
-        </div>
-        <div className="description-container">
-          <div className="description">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-            </p>
+            <img src={item?.img} alt="pic" />
+            <p>{`$${item?.price}`}</p>
+            <br></br>
+            {!isLoggedIn && (
+              <Link to="/login">
+                <button>Buy Now</button>
+              </Link>
+            )}
+            {updatedUser?.cart?.includes(item?._id) ? (
+              <button className="disable" disabled>
+                In Cart
+              </button>
+            ) : (
+              renderCartButtons()
+            )}
+          </div>
+          <div className="description-container">
+            <div className="description">
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

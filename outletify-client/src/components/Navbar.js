@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
   const userId = user?._id;
   return (
     <header className="header-area header-sticky">
@@ -46,7 +47,9 @@ function Navbar() {
                     ) : (
                       <li>
                         <Link to={`/user/${userId}`}>
-                          Cart{user.cart.length}
+
+                          Cart ( {user.cart.length} )
+
                         </Link>
                       </li>
                     )}

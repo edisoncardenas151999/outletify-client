@@ -42,7 +42,6 @@ function HomePage() {
           </div>
         </Link>
       </div>
-      <Footer />
     </>
   );
 }
