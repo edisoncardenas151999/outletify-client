@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
   const userId = user?._id;
   return (
     <header className="header-area header-sticky">

@@ -16,12 +16,12 @@ import Shop from "./pages/Shop";
 import Sell from "./components/Sell";
 import Inventory from "./components/Inventory";
 import Ruby from "./Categories/Ruby";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
 
@@ -51,6 +51,7 @@ function App() {
         <Route path="/sell/:userId" element={<Sell />} />
         <Route path="/inventory/:userId" element={<Inventory />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

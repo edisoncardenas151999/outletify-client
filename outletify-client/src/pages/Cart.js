@@ -9,12 +9,11 @@ import withReactContent from "sweetalert2-react-content";
 import StripeCheckout from "react-stripe-checkout";
 
 const Cart = () => {
-  const { isLoggedIn } = useContext(AuthContext);
-  const key =
+  const Stripekey =
     "pk_test_51M9ZjvG6NeaDtKpVRFtUgmoFVxEMaTjHtPct35DcaB1DLIyvoEqXQ6vAvcgqKcp7cfjeIs5J0ZH94EhjCsSyWN7Z00xeCRkTs7";
 
-  const [userCart, setUserCart] = useState(null);
-
+  const { isLoggedIn } = useContext(AuthContext);
+  const [cart, setCart] = useState(null);
   const { userId } = useParams();
   const API_URL = "https://codebooks.fly.dev";
 
@@ -24,7 +23,9 @@ const Cart = () => {
       .get(`${API_URL}/auth/user/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setUserCart(response.data))
+      .then((response) => {
+        setCart(response.data.cart);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -38,7 +39,7 @@ const Cart = () => {
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setUserCart(response.data))
+      .then((response) => setCart(response.data.cart))
       .catch((error) => console.log(error));
   };
 
@@ -50,7 +51,7 @@ const Cart = () => {
     });
   };
 
-  const totalPrice = userCart?.cart?.reduce(function (acc, val) {
+  const totalPrice = cart?.reduce(function (acc, val) {
     return acc + val?.price;
   }, 0);
 
@@ -74,12 +75,12 @@ const Cart = () => {
   };
   return (
     <>
-      {userCart ? (
+      {cart ? (
         <div className="item-container">
           <div className="payment-container">
             {isLoggedIn && (
               <StripeCheckout
-                stripeKey={key}
+                stripeKey={Stripekey}
                 label="Pay Now"
                 billingAddress
                 shippingAddress
@@ -90,7 +91,7 @@ const Cart = () => {
             )}
             <p>{`total is ${totalPrice}`}</p>
           </div>
-          {userCart?.cart?.map((item, index) => (
+          {cart?.map((item, index) => (
             <div className="item-page" key={index}>
               <Link to={`/item/${item?._id}`}>
                 <strong className="item-name">{item?.name}</strong>
