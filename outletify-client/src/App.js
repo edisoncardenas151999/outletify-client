@@ -17,6 +17,8 @@ import Sell from "./components/Sell";
 import Inventory from "./components/Inventory";
 import Ruby from "./Categories/Ruby";
 import Footer from "./components/Footer";
+import ItemEdit from "./pages/ItemEdit";
+import InventoryPage from "./pages/InventoryPage";
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/sell/:userId" element={<Sell />} />
         <Route path="/inventory/:userId" element={<Inventory />} />
+        <Route path="/item/:itemId/edit" element={<ItemEdit />} />
+        <Route path="/inventoryPage/:itemId" element={<InventoryPage />} />
       </Routes>
       <Footer />
     </div>

@@ -1,33 +1,53 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useContext } from "react"; // <== IMPORT
+import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://codebooks.fly.dev";
+const API_URL = "http://localhost:5005";
 
-function Sell(props) {
-  const { userId } = useParams();
+function ItemEdit() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState(0);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const { user } = useContext(AuthContext);
 
-    const requestBody = { name, price, description, userId };
-    const storedToken = localStorage.getItem("authToken");
+  const userId = user?._id;
+  const { itemId } = useParams();
+
+  useEffect(() => {
     axios
-      .post(`${API_URL}/auth/sell/${userId}`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .get(`${API_URL}/auth/item/${itemId}/edit`)
       .then((response) => {
-        setName("");
-        setDescription("");
-        setPrice(0);
-        navigate(`/inventory/${userId}`);
+        const oneProject = response.data;
+        setName(oneProject.name);
+        setDescription(oneProject.description);
+        setCategory(oneProject.category);
+        setPrice(setPrice.price);
       })
       .catch((error) => console.log(error));
+  }, [itemId]);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const requestBody = { name, category, price, description };
+    axios
+      .put(`${API_URL}/auth/item/${itemId}/edit}`, requestBody)
+      .then((response) => {
+        navigate(`/inventory/${userId}`);
+      });
+  };
+
+  const deleteProject = () => {
+    axios
+      .delete(`${API_URL}/auth/item/${itemId}/delete`)
+      .then(() => {
+        navigate("/projects");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -43,7 +63,7 @@ function Sell(props) {
                 <div className="card-front">
                   <div className="center-wrap">
                     <div className="section text-center">
-                      <form onSubmit={handleSubmit}>
+                      <form onSubmit={handleFormSubmit}>
                         <div className="form-group mb-3">
                           <label>Name:</label>
                           <input
@@ -85,6 +105,7 @@ function Sell(props) {
                         </div>
                         <button type="submit">Sell</button>
                       </form>
+                      <button onClick={deleteProject}>Delete Project</button>
                     </div>
                   </div>
                 </div>
@@ -96,5 +117,4 @@ function Sell(props) {
     </div>
   );
 }
-
-export default Sell;
+export default ItemEdit;
