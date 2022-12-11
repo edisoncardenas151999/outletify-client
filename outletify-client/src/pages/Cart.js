@@ -14,6 +14,7 @@ const Cart = () => {
 
   const { isLoggedIn } = useContext(AuthContext);
   const [cart, setCart] = useState(null);
+  const [userCart, setuserCart] = useState(cart);
   const { userId } = useParams();
   const API_URL = "https://codebooks.fly.dev";
 
@@ -24,7 +25,7 @@ const Cart = () => {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        setCart(response.data.cart);
+        setCart(response?.data?.cart);
       })
       .catch((error) => console.log(error));
   };
@@ -39,7 +40,7 @@ const Cart = () => {
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setCart(response.data.cart))
+      .then((response) => setuserCart(response?.data))
       .catch((error) => console.log(error));
   };
 
@@ -67,14 +68,17 @@ const Cart = () => {
       });
       if (response.status === 200) {
         await handleClearCart();
+        getAllItems();
         handleSuccess();
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <>
+      //TODO! check if cart length === 0
       {cart ? (
         <div className="item-container">
           <div className="payment-container">
