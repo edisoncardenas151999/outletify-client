@@ -26,18 +26,25 @@ const Inventory = () => {
   }, []);
   console.log(items);
   return (
-    <div className="item-container">
-      {items?.map((item, index) => (
-        <div className="item-page" key={index}>
-          <Link to={`/inventoryPage/${item?._id}`}>
-            <strong className="item-name">{item?.name}</strong>
-            <br />
-            <img src={item?.img} alt="pic" />
-            <p>{`$${item?.price}`}</p>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="category">
+        <ul className="ul-category">
+          <li>Inventory</li>
+        </ul>
+      </div>
+      <div className="item-container">
+        {items?.map((item, index) => (
+          <div className="item-page" key={index}>
+            <Link to={`/inventoryPage/${item?._id}`}>
+              <strong className="item-name">{item?.name}</strong>
+              <br />
+              <img src={item?.img} alt="pic" />
+              <p>{`$${item?.price}`}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
