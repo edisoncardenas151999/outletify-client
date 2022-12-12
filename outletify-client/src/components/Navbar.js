@@ -1,9 +1,32 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context";
+import { useContext } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const [currentUser, setCurrentUser] = useState();
+
+  const API_URL = "https://codebooks.fly.dev";
+
+  const getUser = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .get(`${API_URL}/auth/user`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setCurrentUser(response?.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  console.log(currentUser);
 
   const userId = user?._id;
   return (
@@ -40,16 +63,14 @@ function Navbar() {
                     <li className="scroll-to-section">
                       <Link to={`inventory/${userId}`}>Inventory</Link>
                     </li>
-                    {user.cart.length === 0 ? (
+                    {currentUser?.cart?.length === 0 ? (
                       <li>
                         <Link to={`/user/${userId}`}>Cart</Link>
                       </li>
                     ) : (
                       <li>
                         <Link to={`/user/${userId}`}>
-
-                          Cart ( {user.cart.length} )
-
+                          Cart ( {currentUser?.cart?.length} )
                         </Link>
                       </li>
                     )}

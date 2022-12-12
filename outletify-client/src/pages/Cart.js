@@ -3,7 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import ItemCard from "../components/ItemCard";
 import axios from "axios";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import StripeCheckout from "react-stripe-checkout";
@@ -17,6 +17,7 @@ const Cart = () => {
   const [userCart, setuserCart] = useState(cart);
   const { userId } = useParams();
   const API_URL = "https://codebooks.fly.dev";
+  const navigate = useNavigate();
 
   const getAllItems = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -70,6 +71,7 @@ const Cart = () => {
         await handleClearCart();
         getAllItems();
         handleSuccess();
+        navigate(`/user/${userId}`);
       }
     } catch (error) {
       console.log(error);
