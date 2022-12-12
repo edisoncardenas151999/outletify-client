@@ -302,3 +302,11 @@ p {
   max-width: 3000px;
   display: inline-block;
 }
+
+.pb-5 {
+  padding-bottom: 5rem !important;
+}
+
+.mt-5 {
+  margin-top: 0.5rem !important;
+}

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const API_URL = "https://codebooks.fly.dev";
+import { useNavigate } from "react-router-dom";
 
+const API_URL = "https://codebooks.fly.dev";
 const AuthContext = React.createContext();
 
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -60,6 +62,7 @@ function AuthProviderWrapper(props) {
     removeToken();
     // and update the state variables
     authenticateUser();
+    navigate("/");
   };
 
   useEffect(() => {
