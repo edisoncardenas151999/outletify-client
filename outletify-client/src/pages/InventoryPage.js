@@ -35,7 +35,7 @@ const InventoryPage = () => {
 
             <img src={item?.img} alt="pic" />
             <p>{`$${item?.price}`}</p>
-            <button>Edit</button>
+            <Link to={`/item/${item?._id}/edit`}>Edit</Link>
           </div>
 
           <div className="description-container">

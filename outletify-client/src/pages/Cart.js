@@ -78,7 +78,11 @@ const Cart = () => {
 
   return (
     <>
-      //TODO! check if cart length === 0
+      <div className="category">
+        <ul className="ul-category">
+          <li>Cart</li>
+        </ul>
+      </div>
       {cart ? (
         <div className="item-container">
           <div className="payment-container">

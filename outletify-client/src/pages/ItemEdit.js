@@ -20,12 +20,12 @@ function ItemEdit() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/item/${itemId}/edit`)
+      .get(`${API_URL}/auth/items/${itemId}`)
       .then((response) => {
-        const oneProject = response.data;
-        setName(oneProject.name);
-        setDescription(oneProject.description);
-        setCategory(oneProject.category);
+        const oneItem = response.data;
+        setName(oneItem.name);
+        setDescription(oneItem.description);
+        setCategory(oneItem.category);
         setPrice(setPrice.price);
       })
       .catch((error) => console.log(error));
@@ -103,7 +103,7 @@ function ItemEdit() {
                           />
                           <i className="input-icon uil uil-at"></i>
                         </div>
-                        <button type="submit">Sell</button>
+                        <button type="submit">Save</button>
                       </form>
                       <button onClick={deleteProject}>Delete Project</button>
                     </div>

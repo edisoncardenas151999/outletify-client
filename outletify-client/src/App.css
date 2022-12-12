@@ -267,3 +267,38 @@ p {
   background-color: #cccccc;
   color: #666666;
 }
+.about-container {
+  padding: 200px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.about-text {
+  margin-top: -150px;
+  margin-left: -100px;
+}
+.about-text h2 {
+  font-family: "greycliff-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #535353;
+  font-size: 2.8em;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25em;
+}
+.about-text span {
+  font-family: "greycliff", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #535353;
+  font-size: 1.3em;
+  letter-spacing: 0.08em;
+  line-height: 2em;
+}
+.about-pic {
+  padding: 100px;
+  margin-top: -270px;
+  margin-right: -100px;
+}
+.about-pic img {
+  width: 100%;
+  max-width: 3000px;
+  display: inline-block;
+}
