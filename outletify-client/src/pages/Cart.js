@@ -68,9 +68,9 @@ const Cart = () => {
         },
       });
       if (response.status === 200) {
-        await handleClearCart();
+        await handleSuccess();
+        handleClearCart();
         getAllItems();
-        handleSuccess();
         navigate(`/user/${userId}`);
       }
     } catch (error) {
