@@ -4,7 +4,7 @@ import axios from "axios";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://codebooks.fly.dev";
 
 function ItemEdit() {
   const [name, setName] = useState("");
@@ -23,10 +23,10 @@ function ItemEdit() {
       .get(`${API_URL}/auth/items/${itemId}`)
       .then((response) => {
         const oneItem = response.data;
-        setName(oneItem.name);
-        setDescription(oneItem.description);
-        setCategory(oneItem.category);
-        setPrice(setPrice.price);
+        setName(oneItem?.name);
+        setDescription(oneItem?.description);
+        setCategory(oneItem?.category);
+        setPrice(oneItem?.price);
       })
       .catch((error) => console.log(error));
   }, [itemId]);
@@ -35,7 +35,7 @@ function ItemEdit() {
     e.preventDefault();
     const requestBody = { name, category, price, description };
     axios
-      .put(`${API_URL}/auth/item/${itemId}/edit}`, requestBody)
+      .put(`${API_URL}/auth/item/${itemId}/edit`, requestBody)
       .then((response) => {
         navigate(`/inventory/${userId}`);
       });
@@ -45,7 +45,7 @@ function ItemEdit() {
     axios
       .delete(`${API_URL}/auth/item/${itemId}/delete`)
       .then(() => {
-        navigate("/projects");
+        navigate(`/inventory/${userId}`);
       })
       .catch((err) => console.log(err));
   };
