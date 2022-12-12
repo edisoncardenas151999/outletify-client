@@ -1,16 +1,15 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import { AuthContext } from "../context/auth.context";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { Navigate } from "react-router-dom";
 
 const API_URL = "https://codebooks.fly.dev";
 
 function ItemDetailsPage(props) {
-  const Navigate = useNavigate();
-
   const [item, setItem] = useState(null);
   const [orderedItem, setOrderedItem] = useState([]);
   const { itemId } = useParams();
@@ -63,8 +62,7 @@ function ItemDetailsPage(props) {
         console.log(response.data, "res");
         //
       });
-
-    Navigate(`/user/${user._id}`);
+    <Navigate to={`/user/${user._id}`} />;
   };
 
   const handleSuccess = () => {
