@@ -32,29 +32,11 @@ function ItemDetailsPage(props) {
       .catch((error) => console.log(error));
   };
 
-  const getUser = () => {
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .get(`${API_URL}/auth/user`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        const user = response.data;
-        setUpdatedUser(user);
-      })
-      .catch((error) => console.log(error));
-  };
-
   useEffect(() => {
     getItem();
-    getUser();
   }, []);
 
   const MySwal = withReactContent(Swal);
-
-  function refreshPage() {
-    window.location.reload(false);
-  }
 
   const handleAddToCart = () => {
     const requestBody = { orderedItem };
@@ -65,10 +47,8 @@ function ItemDetailsPage(props) {
       })
       .then((response) => {
         console.log(response.data, "res");
-        //
       });
     Navigate(`/user/${user?._id}`);
-    refreshPage();
   };
 
   const handleSuccess = () => {
