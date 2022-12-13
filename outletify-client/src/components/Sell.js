@@ -25,6 +25,7 @@ function Sell(props) {
         setName("");
         setDescription("");
         setPrice(0);
+        setCategory("");
         navigate(`/inventory/${userId}`);
       })
       .catch((error) => console.log(error));

@@ -15,6 +15,7 @@ const Cart = () => {
   const [cart, setCart] = useState();
   const { userId } = useParams();
   const API_URL = "https://codebooks.fly.dev";
+  const navigate = useNavigate();
 
   const getAllItems = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -32,7 +33,7 @@ const Cart = () => {
     getAllItems();
   }, []);
 
-  console.log(cart);
+  console.log(cart, "cart");
 
   const handleClearCart = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -40,7 +41,7 @@ const Cart = () => {
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setCart(response?.data?.cart))
+      .then((response) => console.log(response?.data?.cart))
       .catch((error) => console.log(error));
   };
 
@@ -71,9 +72,8 @@ const Cart = () => {
         },
       });
       if (response.status === 200) {
-        await handleSuccess();
+        handleSuccess();
         handleClearCart();
-        getAllItems();
         setTimeout(() => {
           refreshPage();
         }, 2000);
@@ -82,6 +82,7 @@ const Cart = () => {
       console.log(error);
     }
   };
+  console.log(cart);
 
   return (
     <>

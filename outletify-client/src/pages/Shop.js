@@ -6,9 +6,6 @@ import { useParams, Link } from "react-router-dom";
 const Shop = () => {
   const API_URL = "https://codebooks.fly.dev";
   const [Items, setItems] = useState([]);
-  const [User, setUser] = useState("");
-
-  const { userId } = useParams();
 
   const getAllItem = () => {
     const storedToken = localStorage.getItem("authToken");
