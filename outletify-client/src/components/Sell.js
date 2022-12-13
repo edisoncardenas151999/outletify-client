@@ -15,7 +15,7 @@ function Sell(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { name, price, description, userId };
+    const requestBody = { name, price, description, userId, category };
     const storedToken = localStorage.getItem("authToken");
     axios
       .post(`${API_URL}/auth/sell/${userId}`, requestBody, {
