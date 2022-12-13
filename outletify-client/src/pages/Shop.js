@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ItemCard from "../components/ItemCard";
-import { useParams, Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const API_URL = "https://codebooks.fly.dev";
@@ -9,8 +9,6 @@ const Shop = () => {
 
   const getAllItem = () => {
     const storedToken = localStorage.getItem("authToken");
-
-    // Send the token through the request "Authorization" Headers
     axios
       .get(`${API_URL}/auth/allItems`, {
         headers: { Authorization: `Bearer ${storedToken}` },

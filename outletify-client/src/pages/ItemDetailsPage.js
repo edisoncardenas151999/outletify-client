@@ -124,7 +124,7 @@ function ItemDetailsPage(props) {
   // };
 
   console.log(updatedUser, "updated user");
-  const includes = updatedUser?.email;
+  const includes = updatedUser?.inventory;
   console.log(includes, "id");
 
   return (
@@ -148,7 +148,10 @@ function ItemDetailsPage(props) {
                 <button className="disable" disabled>
                   In Cart
                 </button>
-                {/* <button onClick={deleteItem}>Remove from Cart</button> */}
+              </>
+            ) : updatedUser?.inventory?.includes(itemId) ? (
+              <>
+                <Link to={`/item/edit/${item?._id}`}>Edit</Link>
               </>
             ) : (
               renderCartButtons()
