@@ -34,13 +34,9 @@ const Cart = () => {
   }, []);
 
   console.log(cart, "cart");
-
   const handleClearCart = () => {
-    const storedToken = localStorage.getItem("authToken");
     axios
-      .post(`${API_URL}/auth/cart/${userId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .post(`${API_URL}/auth/cart/${userId}`)
       .then((response) => console.log(response?.data?.cart))
       .catch((error) => console.log(error));
   };
@@ -76,7 +72,6 @@ const Cart = () => {
       console.log(error);
     }
   };
-  console.log(cart);
 
   return (
     <>

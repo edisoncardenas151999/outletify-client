@@ -118,14 +118,14 @@ function ItemDetailsPage(props) {
   };
   const priceForStripe = item?.price * 100;
 
-  // const deleteItem = () => {
-  //   axios
-  //     .delete(`${API_URL}/auth/item/${itemId}/delete`)
-  //     .then(() => {
-  //       Navigate(`/user/${userId}`);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const deleteItem = () => {
+    axios
+      .post(`${API_URL}/auth/cart/${itemId}`)
+      .then(() => {
+        Navigate(`/user/${userId}`);
+      })
+      .catch((err) => console.log(err));
+  };
 
   console.log(updatedUser, "updated user");
   const includes = updatedUser?.inventory;
@@ -152,6 +152,7 @@ function ItemDetailsPage(props) {
                 <button className="disable" disabled>
                   In Cart
                 </button>
+                <button onClick={deleteItem}> Delete </button>
               </>
             ) : updatedUser?.inventory?.includes(itemId) ? (
               <>
