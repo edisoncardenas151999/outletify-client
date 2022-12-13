@@ -44,16 +44,51 @@ function App() {
           }
         />
         <Route path="/item/:itemId" element={<ItemDetailsPage />} />
-        <Route path="/user/:userId" element={<Cart />} />
+        <Route
+          path="/user/:userId"
+          element={
+            <IsPrivate>
+              <Cart />
+            </IsPrivate>
+          }
+        />
         <Route path="/javascript" element={<Javascript />} />
         <Route path="/python" element={<Python />} />
         <Route path="/java" element={<Java />} />
         <Route path="/ruby" element={<Ruby />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/sell/:userId" element={<Sell />} />
-        <Route path="/inventory/:userId" element={<Inventory />} />
-        <Route path="/item/edit/:itemId/" element={<ItemEdit />} />
-        <Route path="/inventoryPage/:itemId" element={<InventoryPage />} />
+        <Route
+          path="/sell/:userId"
+          element={
+            <IsPrivate>
+              <Sell />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/inventory/:userId"
+          element={
+            <IsPrivate>
+              <Inventory />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/item/edit/:itemId/"
+          element={
+            <IsPrivate>
+              <ItemEdit />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/inventoryPage/:itemId"
+          element={
+            <IsPrivate>
+              <InventoryPage />
+            </IsPrivate>
+          }
+        />
       </Routes>
       <Footer />
     </div>

@@ -26,8 +26,6 @@ function Navbar() {
     getUser();
   }, []);
 
-  console.log(currentUser);
-
   const userId = user?._id;
   return (
     <header className="header-area header-sticky">

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
-import ItemCard from "../components/ItemCard";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -13,11 +12,9 @@ const Cart = () => {
     "pk_test_51M9ZjvG6NeaDtKpVRFtUgmoFVxEMaTjHtPct35DcaB1DLIyvoEqXQ6vAvcgqKcp7cfjeIs5J0ZH94EhjCsSyWN7Z00xeCRkTs7";
 
   const { isLoggedIn } = useContext(AuthContext);
-  const [cart, setCart] = useState(null);
-  const [userCart, setuserCart] = useState(cart);
+  const [cart, setCart] = useState();
   const { userId } = useParams();
   const API_URL = "https://codebooks.fly.dev";
-  const navigate = useNavigate();
 
   const getAllItems = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -35,13 +32,15 @@ const Cart = () => {
     getAllItems();
   }, []);
 
+  console.log(cart);
+
   const handleClearCart = () => {
-    const storedToken = localStorage.getItem("userId");
+    const storedToken = localStorage.getItem("authToken");
     axios
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setuserCart(response?.data))
+      .then((response) => setCart(response?.data?.cart))
       .catch((error) => console.log(error));
   };
 
