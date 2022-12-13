@@ -59,7 +59,7 @@ function ItemDetailsPage(props) {
     window.location.reload(false);
   }
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     const requestBody = { item };
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -69,7 +69,6 @@ function ItemDetailsPage(props) {
       .then((response) => {
         console.log(response?.data, "res");
       });
-    refreshPage();
     Navigate(`/user/${user?._id}`);
   };
 
