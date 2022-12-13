@@ -105,7 +105,7 @@ function ItemEdit() {
                         </div>
                         <button type="submit">Save</button>
                       </form>
-                      <button onClick={deleteProject}>Delete Project</button>
+                      <button onClick={deleteProject}>Delete</button>
                     </div>
                   </div>
                 </div>
