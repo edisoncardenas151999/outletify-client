@@ -22,9 +22,9 @@ function Navbar() {
       .catch((error) => console.log(error));
   };
 
-  useEffect(() => {
-    getUser();
-  }, []);
+  const isUserActive = () => {
+    return getUser();
+  };
 
   const userId = user?._id;
   return (
@@ -55,6 +55,7 @@ function Navbar() {
 
                 {isLoggedIn && (
                   <>
+                    {isUserActive()}
                     <li className="scroll-to-section">
                       <Link to={`/sell/${userId}`}>Sell</Link>
                     </li>
