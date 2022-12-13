@@ -55,6 +55,10 @@ function ItemDetailsPage(props) {
 
   const MySwal = withReactContent(Swal);
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const handleAddToCart = () => {
     const requestBody = { item };
     const storedToken = localStorage.getItem("authToken");
@@ -65,6 +69,7 @@ function ItemDetailsPage(props) {
       .then((response) => {
         console.log(response?.data, "res");
       });
+    refreshPage();
     Navigate(`/user/${user?._id}`);
   };
 
