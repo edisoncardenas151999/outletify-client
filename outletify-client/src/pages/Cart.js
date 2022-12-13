@@ -57,10 +57,6 @@ const Cart = () => {
     return acc + val?.price;
   }, 0);
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
-
   const payNow = async (token) => {
     try {
       const response = await axios({
@@ -74,9 +70,7 @@ const Cart = () => {
       if (response.status === 200) {
         handleSuccess();
         handleClearCart();
-        setTimeout(() => {
-          refreshPage();
-        }, 2000);
+        getAllItems();
       }
     } catch (error) {
       console.log(error);

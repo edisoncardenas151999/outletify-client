@@ -42,7 +42,7 @@ const Java = () => {
       <div className="item-container">
         {items?.map((item, index) => {
           const java =
-            item?.category === "Java" ? (
+            item?.category === "java" ? (
               <div className="item-page" key={index}>
                 <Link to={`/item/${item?._id}`}>
                   <strong className="item-name">{item?.name}</strong>
