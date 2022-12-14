@@ -33,15 +33,13 @@ const Cart = () => {
     getAllItems();
   }, []);
 
-  console.log(cart, "cart");
-
   const handleClearCart = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => console.log(response?.data?.cart))
+      .then((response) => getAllItems())
       .catch((error) => console.log(error));
   };
 
@@ -70,13 +68,11 @@ const Cart = () => {
       if (response.status === 200) {
         handleSuccess();
         handleClearCart();
-        getAllItems();
       }
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(cart);
 
   return (
     <>

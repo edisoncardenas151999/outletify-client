@@ -7,7 +7,7 @@ function Navbar() {
 
   const userId = user?._id;
   return (
-    <header className="header-area header-sticky">
+    <header className="  header-area header-sticky">
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -23,7 +23,7 @@ function Navbar() {
                   <Link to={`/`}>Home</Link>
                 </li>
                 <li className="scroll-to-section">
-                  <Link to={`/`}>About</Link>
+                  <a href="/#about">About</a>
                 </li>
                 <li className="scroll-to-section">
                   <Link to={`/`}>Contact</Link>

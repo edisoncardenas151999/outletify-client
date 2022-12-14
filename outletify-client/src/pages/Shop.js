@@ -47,8 +47,8 @@ const Shop = () => {
               <strong className="item-name">{item?.name}</strong>
               <br />
               <img src={item?.img} alt="pic" />
-              <p>{`$${item?.price}`}</p>
             </Link>
+            <p>{`$${item?.price}`}</p>
           </div>
         ))}
       </div>
