@@ -119,8 +119,11 @@ function ItemDetailsPage(props) {
   const priceForStripe = item?.price * 100;
 
   const deleteItem = () => {
+    const storedToken = localStorage.getItem("authToken");
     axios
-      .post(`${API_URL}/auth/cart/${itemId}`)
+      .delete(`${API_URL}/auth/cart/${itemId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then(() => {
         Navigate(`/user/${userId}`);
       })

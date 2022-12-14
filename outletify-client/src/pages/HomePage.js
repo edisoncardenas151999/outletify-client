@@ -31,7 +31,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="about-container">
+      <div id="about">
         <div className="about-text">
           <h2>About Our Coding Book Ecommerce Store</h2>
           <span>
