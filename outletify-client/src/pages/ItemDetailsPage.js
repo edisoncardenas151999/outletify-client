@@ -151,8 +151,11 @@ function ItemDetailsPage(props) {
           <div>
             <p>{item?.name}</p>
             <br></br>
-
-            <img src={item?.img} alt="pic" />
+            {item?.img ? (
+              <img src={item?.img} alt="pic" />
+            ) : (
+              <img src="/image.png" alt="pic" />
+            )}
             <p>{`$${item?.price}`}</p>
             <br></br>
             {!isLoggedIn && (
