@@ -46,7 +46,11 @@ const Shop = () => {
             <Link to={`/item/${item?._id}`}>
               <strong className="item-name">{item?.name}</strong>
               <br />
-              <img src={item?.img} alt="pic" />
+              {item?.img ? (
+                <img src={item?.img} alt="pic" />
+              ) : (
+                <img src="image.png" alt="pic" />
+              )}
             </Link>
             <p>{`$${item?.price}`}</p>
           </div>

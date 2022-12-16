@@ -37,6 +37,9 @@ const Ruby = () => {
           <li>
             <Link to="/ruby">Ruby</Link>
           </li>
+          <li>
+            <Link to="/shop">All</Link>
+          </li>
         </ul>
       </div>
       <div className="item-container">

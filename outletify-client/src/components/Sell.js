@@ -14,7 +14,6 @@ function Sell(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const requestBody = { name, price, description, userId, category };
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -52,6 +51,7 @@ function Sell(props) {
                             type="text"
                             name="name"
                             value={name}
+                            autoFocus
                             onChange={(e) => setName(e.target.value)}
                           />
                           <i className="input-icon uil uil-at"></i>
