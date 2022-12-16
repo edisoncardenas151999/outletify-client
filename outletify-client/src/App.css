@@ -321,11 +321,12 @@ p {
   max-width: 200px;
 }
 .description p {
-  padding-top: 100px;
-  padding-right: 50px;
+  padding-top: 80px;
+  padding-left: 100px;
   font-family: "greycliff", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   line-height: 2em;
+  margin-left: -100px;
 }
 
 html,
