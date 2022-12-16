@@ -31,23 +31,27 @@ const Library = () => {
 
   return (
     <>
-      <div className="item-container">
-        {item?.map((item, index) => (
-          <div key={index}>
-            <div className="item-page">
-              <Link to={`/item/${item?._id}`}>
-                <strong className="item-name">{item?.name}</strong>
-                <br />
-                {item?.img ? (
-                  <img src={item?.img} alt="pic" />
-                ) : (
-                  <img src="/image.png" alt="pic" />
-                )}
-              </Link>
+      {item?.length ? (
+        <div className="item-container">
+          {item?.map((item, index) => (
+            <div key={index}>
+              <div className="item-page">
+                <Link to={`/item/${item?._id}`}>
+                  <strong className="item-name">{item?.name}</strong>
+                  <br />
+                  {item?.img ? (
+                    <img src={item?.img} alt="pic" />
+                  ) : (
+                    <img src="/image.png" alt="pic" />
+                  )}
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        "No Items in Library"
+      )}
     </>
   );
 };
