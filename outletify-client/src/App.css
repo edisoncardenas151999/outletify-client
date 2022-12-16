@@ -353,3 +353,7 @@ body,
 .payment-container {
   margin-top: 50px;
 }
+.buyer {
+  font-size: 15px;
+  font-family: "greycliff", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
