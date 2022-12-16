@@ -39,7 +39,7 @@ const Cart = () => {
     const requestBody = { cartId };
     console.log(requestBody, "req.body");
     axios
-      .post(`${API_URL}/auth/buyCart/${userId}`, requestBody, {
+      .put(`${API_URL}/auth/buyCart/${userId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => console.log(response))
@@ -52,6 +52,7 @@ const Cart = () => {
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
+      .then(() => handleBuyCart())
       .then(() => getAllItems())
       .catch((error) => console.log(error));
   };

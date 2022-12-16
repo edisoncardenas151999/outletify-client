@@ -97,21 +97,15 @@ strong {
   align-items: center;
 }
 
-.home-pic1 {
-  background-image: url("https://i.pinimg.com/736x/7a/6d/f4/7a6df4793e6f8998f841f09b5b8f4f17.jpg");
-  position: relative;
-  margin: 10px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding: 240px 340px 50px 100px;
-}
 .home-pic2 {
   background-image: url("https://www.newgenapps.com/hubfs/Orange%20E-Commerce%20Button%20on%20Computer%20Keyboard.%20Internet%20Concept.-1.jpeg");
   position: relative;
   margin: 10px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  padding: 240px 340px 50px 100px;
+  padding: 500px;
+  padding-bottom: 5px;
+  padding-top: 300px;
 }
 
 img {
@@ -282,6 +276,7 @@ p {
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
+  margin-bottom: 121px;
 }
 .about-text {
   margin-top: -150px;
@@ -302,14 +297,12 @@ p {
   line-height: 2em;
 }
 .about-pic {
-  padding: 100px;
-  margin-top: -300px;
-  margin-right: -200px;
-}
-.about-pic img {
-  width: 100%;
-  max-width: 3000px;
-  display: inline-block;
+  padding: 200px;
+  background-image: url("../public/318943914_1551798805243698_4264447018599094703_n.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: -140px;
+  margin-top: -120px;
 }
 
 .pb-5 {

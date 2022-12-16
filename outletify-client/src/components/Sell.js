@@ -42,6 +42,7 @@ function Sell(props) {
             <div className="card-3d-wrap mx-auto">
               <div className="card-3d-wrapper">
                 <div className="card-front">
+                  <h4>Sell Book</h4>
                   <div className="center-wrap">
                     <div className="section text-center">
                       <form onSubmit={handleSubmit}>

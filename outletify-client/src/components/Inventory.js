@@ -32,6 +32,7 @@ const Inventory = () => {
           <li>Inventory</li>
         </ul>
       </div>
+
       <div className="item-container">
         {items?.map((item, index) => (
           <div className="item-page" key={index}>
