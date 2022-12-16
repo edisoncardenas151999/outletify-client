@@ -72,12 +72,25 @@ function ItemDetailsPage(props) {
     Navigate(`/user/${user?._id}`);
   };
 
+  const handleBuy = () => {
+    const storedToken = localStorage.getItem("authToken");
+    const requestBody = { itemId };
+    console.log(requestBody, "req.body");
+    axios
+      .post(`${API_URL}/auth/buyItem/${userId}`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  };
+
   const handleSuccess = () => {
     MySwal.fire({
       icon: "success",
       title: "Payment was succesful",
       time: 1000,
     });
+    handleBuy();
   };
 
   const payNow = async (token) => {
@@ -147,7 +160,7 @@ function ItemDetailsPage(props) {
             <br></br>
             {!isLoggedIn && (
               <Link to="/login">
-                <button>Buy Now</button>
+                <button>Log in to Buy</button>
               </Link>
             )}
             {updatedUser?.cart?.includes(itemId) ? (

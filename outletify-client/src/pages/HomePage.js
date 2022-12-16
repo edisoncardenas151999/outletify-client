@@ -51,10 +51,6 @@ function HomePage() {
       </div>
 
       <div className="home-pic-container">
-        <div className="home-pic1">
-          <div className="overlay"></div>
-          <div className="content">TEST</div>
-        </div>
         <Link to="/shop">
           <div className="home-pic2">
             <div className="overlay"></div>

@@ -19,79 +19,91 @@ import Ruby from "./Categories/Ruby";
 import Footer from "./components/Footer";
 import ItemEdit from "./pages/ItemEdit";
 import InventoryPage from "./pages/InventoryPage";
+import Library from "./pages/Library";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+    <>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <Route
-          path="/signup"
-          element={
-            <IsAnon>
-              <SignupPage />{" "}
-            </IsAnon>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <IsAnon>
-              <LoginPage />
-            </IsAnon>
-          }
-        />
-        <Route path="/item/:itemId" element={<ItemDetailsPage />} />
-        <Route
-          path="/user/:userId"
-          element={
-            <IsPrivate>
-              <Cart />
-            </IsPrivate>
-          }
-        />
-        <Route path="/javascript" element={<Javascript />} />
-        <Route path="/python" element={<Python />} />
-        <Route path="/java" element={<Java />} />
-        <Route path="/ruby" element={<Ruby />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route
-          path="/sell/:userId"
-          element={
-            <IsPrivate>
-              <Sell />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/inventory/:userId"
-          element={
-            <IsPrivate>
-              <Inventory />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/item/edit/:itemId/"
-          element={
-            <IsPrivate>
-              <ItemEdit />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/inventoryPage/:itemId"
-          element={
-            <IsPrivate>
-              <InventoryPage />
-            </IsPrivate>
-          }
-        />
-      </Routes>
+          <Route
+            path="/signup"
+            element={
+              <IsAnon>
+                <SignupPage />{" "}
+              </IsAnon>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <IsAnon>
+                <LoginPage />
+              </IsAnon>
+            }
+          />
+          <Route path="/item/:itemId" element={<ItemDetailsPage />} />
+          <Route
+            path="/user/:userId"
+            element={
+              <IsPrivate>
+                <Cart />
+              </IsPrivate>
+            }
+          />
+          <Route path="/javascript" element={<Javascript />} />
+          <Route path="/python" element={<Python />} />
+          <Route path="/java" element={<Java />} />
+          <Route path="/ruby" element={<Ruby />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route
+            path="/sell/:userId"
+            element={
+              <IsPrivate>
+                <Sell />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/library"
+            element={
+              <IsPrivate>
+                <Library />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/inventory/:userId"
+            element={
+              <IsPrivate>
+                <Inventory />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/item/edit/:itemId/"
+            element={
+              <IsPrivate>
+                <ItemEdit />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/inventoryPage/:itemId"
+            element={
+              <IsPrivate>
+                <InventoryPage />
+              </IsPrivate>
+            }
+          />
+        </Routes>
+        <div className="push"></div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

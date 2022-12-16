@@ -44,9 +44,11 @@ function Navbar() {
                     <li>
                       <Link to={`/user/${userId}`}>Cart</Link>
                     </li>
-
+                    {/* <li>
+                      <Link to={`/library`}>Library</Link>
+                    </li> */}
                     <li>
-                      <button onClick={logOutUser}>Logout</button>
+                      <button onClick={logOutUser}>Log Out</button>
                     </li>
                   </>
                 )}
@@ -60,7 +62,7 @@ function Navbar() {
                     </li>
                     <li>
                       <Link to="/login">
-                        <button>Login</button>
+                        <button>Log In</button>
                       </Link>
                     </li>
                   </>
