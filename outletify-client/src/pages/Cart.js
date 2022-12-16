@@ -33,17 +33,31 @@ const Cart = () => {
     getAllItems();
   }, []);
 
+  const handleBuyCart = () => {
+    const storedToken = localStorage.getItem("authToken");
+    const cartId = cart?.map((item) => item?._id);
+    const requestBody = { cartId };
+    console.log(requestBody, "req.body");
+    axios
+      .post(`${API_URL}/auth/buyCart/${userId}`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  };
+
   const handleClearCart = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .post(`${API_URL}/auth/cart/${userId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => getAllItems())
+      .then(() => getAllItems())
       .catch((error) => console.log(error));
   };
 
   const MySwal = withReactContent(Swal);
+
   const handleSuccess = () => {
     MySwal.fire({
       icon: "success",
@@ -81,8 +95,8 @@ const Cart = () => {
           <li>Cart</li>
         </ul>
       </div>
-      {cart ? (
-        <div className="item-container">
+      {cart?.length ? (
+        <>
           <div className="payment-container">
             {isLoggedIn && (
               <StripeCheckout
@@ -95,19 +109,21 @@ const Cart = () => {
                 token={payNow}
               />
             )}
-            <p>{`total is ${totalPrice}`}</p>
+            <p>{`total is $${totalPrice}`}</p>
           </div>
-          {cart?.map((item, index) => (
-            <div className="item-page" key={index}>
-              <Link to={`/item/${item?._id}`}>
-                <strong className="item-name">{item?.name}</strong>
-                <br />
-                <img src={item?.img} alt="pic" />
-                <p>{`$${item?.price}`}</p>
-              </Link>
-            </div>
-          ))}
-        </div>
+          <div className="item-container">
+            {cart?.map((item, index) => (
+              <div className="item-page" key={index}>
+                <Link to={`/item/${item?._id}`}>
+                  <strong className="item-name">{item?.name}</strong>
+                  <br />
+                  <img src={item?.img} alt="pic" />
+                  <p>{`$${item?.price}`}</p>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </>
       ) : (
         "No Items In Cart"
       )}
