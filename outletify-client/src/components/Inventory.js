@@ -32,23 +32,26 @@ const Inventory = () => {
           <li>Inventory</li>
         </ul>
       </div>
-
-      <div className="item-container">
-        {items?.map((item, index) => (
-          <div className="item-page" key={index}>
-            <Link to={`/inventoryPage/${item?._id}`}>
-              <strong className="item-name">{item?.name}</strong>
-              <br />
-              {item?.img ? (
-                <img src={item?.img} alt="pic" />
-              ) : (
-                <img src="/image.png" alt="pic" />
-              )}
-              <p>{`$${item?.price}`}</p>
-            </Link>
-          </div>
-        ))}
-      </div>
+      {items?.length ? (
+        <div className="item-container">
+          {items?.map((item, index) => (
+            <div className="item-page" key={index}>
+              <Link to={`/inventoryPage/${item?._id}`}>
+                <strong className="item-name">{item?.name}</strong>
+                <br />
+                {item?.img ? (
+                  <img src={item?.img} alt="pic" />
+                ) : (
+                  <img src="/image.png" alt="pic" />
+                )}
+                <p>{`$${item?.price}`}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
+      ) : (
+        "No Items in Inventory"
+      )}
     </>
   );
 };
