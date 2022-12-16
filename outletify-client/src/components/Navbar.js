@@ -26,9 +26,6 @@ function Navbar() {
                   <a href="/#about">About</a>
                 </li>
                 <li className="scroll-to-section">
-                  <Link to={`/`}>Contact</Link>
-                </li>
-                <li className="scroll-to-section">
                   <Link to="/shop">Shop</Link>
                 </li>
 
@@ -44,9 +41,9 @@ function Navbar() {
                     <li>
                       <Link to={`/user/${userId}`}>Cart</Link>
                     </li>
-                    {/* <li>
+                    <li>
                       <Link to={`/library`}>Library</Link>
-                    </li> */}
+                    </li>
                     <li>
                       <button onClick={logOutUser}>Log Out</button>
                     </li>

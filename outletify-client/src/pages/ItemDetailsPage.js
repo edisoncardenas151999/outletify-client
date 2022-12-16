@@ -55,12 +55,8 @@ function ItemDetailsPage(props) {
 
   const MySwal = withReactContent(Swal);
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
-
   const handleAddToCart = async () => {
-    const requestBody = { item };
+    const requestBody = { itemId };
     const storedToken = localStorage.getItem("authToken");
     axios
       .post(`${API_URL}/auth/order/${itemId}`, requestBody, {
@@ -71,13 +67,14 @@ function ItemDetailsPage(props) {
       });
     Navigate(`/user/${user?._id}`);
   };
+  console.log(itemId, "itemId");
 
-  const handleBuy = () => {
+  const handleBuyItem = () => {
     const storedToken = localStorage.getItem("authToken");
-    const requestBody = { itemId };
+    const requestBody = itemId;
     console.log(requestBody, "req.body");
     axios
-      .post(`${API_URL}/auth/buyItem/${userId}`, requestBody, {
+      .post(`${API_URL}/auth/buy/${itemId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => console.log(response))
@@ -90,7 +87,7 @@ function ItemDetailsPage(props) {
       title: "Payment was succesful",
       time: 1000,
     });
-    handleBuy();
+    handleBuyItem();
   };
 
   const payNow = async (token) => {
@@ -173,6 +170,12 @@ function ItemDetailsPage(props) {
             ) : updatedUser?.inventory?.includes(itemId) ? (
               <>
                 <Link to={`/item/edit/${item?._id}`}>Edit</Link>
+              </>
+            ) : updatedUser?.PurchasesList?.includes(itemId) ? (
+              <>
+                <button className="disable" disabled>
+                  In Purchased List
+                </button>
               </>
             ) : (
               renderCartButtons()

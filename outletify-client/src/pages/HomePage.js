@@ -45,9 +45,7 @@ function HomePage() {
             science, our collection has something for every coder.
           </span>
         </div>
-        <div className="about-pic">
-          <img src="altumcode-PNbDkQ2DDgM-unsplash.jpg" alt="pic"></img>
-        </div>
+        <div className="about-pic"></div>
       </div>
 
       <div className="home-pic-container">
