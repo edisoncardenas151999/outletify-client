@@ -130,7 +130,7 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        "No Items In Cart"
+        "No Items In Cart, This is where you'll see books that you've added to cart."
       )}
     </>
   );

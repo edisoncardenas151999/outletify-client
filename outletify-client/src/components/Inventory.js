@@ -50,7 +50,7 @@ const Inventory = () => {
           ))}
         </div>
       ) : (
-        "No Items in Inventory"
+        "No Items in Inventory, This is where you'll see books that you've sell."
       )}
     </>
   );
