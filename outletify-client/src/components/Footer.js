@@ -5,10 +5,7 @@ const Footer = () => {
         <div className="icon">
           <i className="fab fa-facebook-f"></i>
         </div>
-        <a
-          className="footer-fb"
-          href="https://www.facebook.com/edison.cardenas.549436"
-        >
+        <a className="footer-fb" target="_blank">
           Facebook
         </a>
       </div>
@@ -16,10 +13,7 @@ const Footer = () => {
         <div className="icon">
           <i className="fab fa-github"></i>
         </div>
-        <a
-          className="footer-github"
-          href="https://github.com/edisoncardenas151999"
-        >
+        <a className="footer-github" target="_blank">
           Github
         </a>
       </div>
@@ -27,10 +21,7 @@ const Footer = () => {
         <div className="icon">
           <i className="fab fa-linkedin"></i>
         </div>
-        <a
-          className="footer-linkedin"
-          href="https://www.linkedin.com/in/edison-cardenas/"
-        >
+        <a className="footer-linkedin" target="_blank">
           LinkedIn
         </a>
       </div>
@@ -38,10 +29,7 @@ const Footer = () => {
         <div className="icon">
           <i className="fab fa-codepen"></i>
         </div>
-        <a
-          className="footer-codepen"
-          href="https://codepen.io/edisoncardenas151999-gmail-com"
-        >
+        <a className="footer-codepen" target="_blank">
           Codepen
         </a>
       </div>
@@ -49,10 +37,7 @@ const Footer = () => {
         <div className="icon">
           <i className="fab fa-slack"></i>
         </div>
-        <a
-          className="footer-slack"
-          href="https://app.slack.com/client/T02CQ4EN4/D03LGTBQD6G/rimeto_profile/U03LEDTCYF5"
-        >
+        <a className="footer-slack" target="_blank">
           Slack
         </a>
       </div>

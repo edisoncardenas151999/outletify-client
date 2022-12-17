@@ -23,14 +23,14 @@ function Navbar() {
                   <Link to={`/`}>Home</Link>
                 </li>
                 <li className="scroll-to-section">
-                  <a href="/#about">About</a>
-                </li>
-                <li className="scroll-to-section">
                   <Link to="/shop">Shop</Link>
                 </li>
 
                 {isLoggedIn && (
                   <>
+                    <li className="scroll-to-section">
+                      <a href="/#about">About</a>
+                    </li>
                     <li className="scroll-to-section">
                       <Link to={`/sell/${userId}`}>Sell</Link>
                     </li>

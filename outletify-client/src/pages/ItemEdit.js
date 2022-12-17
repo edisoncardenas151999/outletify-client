@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context";
+import Rating from "../components/Rating";
 
 const API_URL = "https://codebooks.fly.dev";
 

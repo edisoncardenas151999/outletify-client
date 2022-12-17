@@ -20,6 +20,7 @@ import Footer from "./components/Footer";
 import ItemEdit from "./pages/ItemEdit";
 import InventoryPage from "./pages/InventoryPage";
 import Library from "./pages/Library";
+import Rating from "./components/Rating";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
           <Route path="/java" element={<Java />} />
           <Route path="/ruby" element={<Ruby />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/rating/:itemId" element={<Rating />} />
           <Route
             path="/sell/:userId"
             element={

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import RatingComponent from "reactjs-rating-component";
 
 const API_URL = "https://codebooks.fly.dev";
 
@@ -46,10 +47,16 @@ const InventoryPage = () => {
           <div>
             {buyer?.map((buyer, index) => (
               <p className="buyer" key={index}>
-                {buyer?.name} bought this product :
+                {buyer?.name} bought and rated this product :
                 <a href={`mailto: ${buyer?.email}`}>Send Product</a>
               </p>
             ))}
+            <RatingComponent
+              heading="Rating"
+              rate={item?.rating?.rate}
+              headingColor="purple"
+              starColor="green"
+            />
             <p>{item?.name}</p>
             <br></br>
             {item?.img ? (
