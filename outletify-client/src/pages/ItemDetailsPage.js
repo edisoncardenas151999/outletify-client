@@ -5,6 +5,8 @@ import StripeCheckout from "react-stripe-checkout";
 import { AuthContext } from "../context/auth.context";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import RatingComponent from "reactjs-rating-component";
+import Rating from "../components/Rating";
 
 const API_URL = "https://codebooks.fly.dev";
 
@@ -34,6 +36,8 @@ function ItemDetailsPage(props) {
   useEffect(() => {
     getItem();
   }, []);
+
+  console.log(item, "sdssadas");
 
   const userId = user?._id;
 
@@ -149,6 +153,8 @@ function ItemDetailsPage(props) {
   const includes = updatedUser?.inventory;
   console.log(includes, "id");
 
+  console.log(item, "rating");
+
   return (
     <>
       <div className="item-detail-container">
@@ -184,6 +190,13 @@ function ItemDetailsPage(props) {
                 <button className="disable" disabled>
                   In Purchased List
                 </button>
+                <RatingComponent
+                  heading="Rating"
+                  rate={item?.rating?.rate}
+                  headingColor="purple"
+                  starColor="green"
+                />
+                <Rating />
               </>
             ) : (
               renderCartButtons()
