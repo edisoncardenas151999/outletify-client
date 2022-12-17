@@ -9,7 +9,7 @@ function Sell(props) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(30);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -57,7 +57,7 @@ function Sell(props) {
                           <i className="input-icon uil uil-at"></i>
                         </div>
                         <div className="form-group mt-5">
-                          <label>Price $:</label>
+                          <label>Price ($):</label>
                           <input
                             type="number"
                             name="price"
