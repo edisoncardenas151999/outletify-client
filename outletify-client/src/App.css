@@ -357,3 +357,18 @@ body,
   font-size: 15px;
   font-family: "greycliff", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.category {
+  margin-top: 20px;
+}
+.form-group {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#sell-container label {
+  color: #000;
+  text-align: right;
+  width: 107px;
+  margin-right: 10px;
+}

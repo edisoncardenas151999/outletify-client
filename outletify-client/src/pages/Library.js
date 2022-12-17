@@ -51,7 +51,7 @@ const Library = () => {
           ))}
         </div>
       ) : (
-        "No Items in Library"
+        "No Items in Library, This is where you'll see books that you've bought."
       )}
     </>
   );

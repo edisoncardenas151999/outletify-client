@@ -29,9 +29,6 @@ function Navbar() {
                 {isLoggedIn && (
                   <>
                     <li className="scroll-to-section">
-                      <a href="/#about">About</a>
-                    </li>
-                    <li className="scroll-to-section">
                       <Link to={`/sell/${userId}`}>Sell</Link>
                     </li>
                     <li className="scroll-to-section">
@@ -52,6 +49,9 @@ function Navbar() {
 
                 {!isLoggedIn && (
                   <>
+                    <li className="scroll-to-section">
+                      <a href="/#about">About</a>
+                    </li>
                     <li>
                       <Link to="/signup">
                         <button>Sign Up</button>

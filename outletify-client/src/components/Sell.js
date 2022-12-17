@@ -57,7 +57,7 @@ function Sell(props) {
                           <i className="input-icon uil uil-at"></i>
                         </div>
                         <div className="form-group mt-5">
-                          <label>Price:</label>
+                          <label>Price $:</label>
                           <input
                             type="number"
                             name="price"
