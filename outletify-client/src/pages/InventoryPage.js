@@ -47,8 +47,8 @@ const InventoryPage = () => {
           <div>
             {buyer?.map((buyer, index) => (
               <p className="buyer" key={index}>
-                {buyer?.name} bought and rated this product :
-                <a href={`mailto: ${buyer?.email}`}>Send Product</a>
+                <strong>{buyer?.name}</strong> bought and rated this product:
+                <a href={`mailto: ${buyer?.email}`}> Send Product</a>
               </p>
             ))}
             <RatingComponent

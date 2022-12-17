@@ -372,3 +372,10 @@ body,
   width: 107px;
   margin-right: 10px;
 }
+.item-detail strong {
+  text-decoration: none;
+}
+
+.sell-button {
+  margin-top: 10px;
+}
